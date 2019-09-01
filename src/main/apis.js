@@ -2,18 +2,24 @@ import http from 'http'
 
 const HOST = `http://127.0.0.1:37373`
 const apis = {
-  getSubjects: wrap({ url: `${HOST}/subjects` })
+  getSubjects: wrap({ url: `${HOST}/subjects` }),
+  getArticles: wrap({ url: `${HOST}/articles` })
 }
 
 export default apis
 
 function wrap(option) {
-  return async () => {
+  return async config => {
     return await new Promise(resolve => {
-      http.get(option.url, function(res) {
+      let body = []
+
+      http.get(`${option.url}${config ? config.query : ''}`, function(res) {
         res.on('data', function(chunk) {
-          const ret = JSON.parse(chunk)
-          resolve(ret.data)
+          body.push(chunk)
+        })
+        res.on('end', function() {
+          body = Buffer.concat(body).toString()
+          resolve(JSON.parse(body).data)
         })
       })
     })

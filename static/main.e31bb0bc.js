@@ -17632,6 +17632,7 @@ http.METHODS = [
 	'UNSUBSCRIBE'
 ]
 },{"./lib/request":"../../node_modules/stream-http/lib/request.js","./lib/response":"../../node_modules/stream-http/lib/response.js","xtend":"../../node_modules/xtend/immutable.js","builtin-status-codes":"../../node_modules/builtin-status-codes/browser.js","url":"../../node_modules/url/url.js"}],"apis.js":[function(require,module,exports) {
+var Buffer = require("buffer").Buffer;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -17651,6 +17652,9 @@ var HOST = "http://127.0.0.1:37373";
 var apis = {
   getSubjects: wrap({
     url: "".concat(HOST, "/subjects")
+  }),
+  getArticles: wrap({
+    url: "".concat(HOST, "/articles")
   })
 };
 var _default = apis;
@@ -17659,36 +17663,47 @@ exports.default = _default;
 function wrap(option) {
   return (
     /*#__PURE__*/
-    (0, _asyncToGenerator2.default)(
-    /*#__PURE__*/
-    _regenerator.default.mark(function _callee() {
-      return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return new Promise(function (resolve) {
-                _http.default.get(option.url, function (res) {
-                  res.on('data', function (chunk) {
-                    var ret = JSON.parse(chunk);
-                    resolve(ret.data);
+    function () {
+      var _ref = (0, _asyncToGenerator2.default)(
+      /*#__PURE__*/
+      _regenerator.default.mark(function _callee(config) {
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return new Promise(function (resolve) {
+                  var body = [];
+
+                  _http.default.get("".concat(option.url).concat(config ? config.query : ''), function (res) {
+                    res.on('data', function (chunk) {
+                      body.push(chunk);
+                    });
+                    res.on('end', function () {
+                      body = Buffer.concat(body).toString();
+                      resolve(JSON.parse(body).data);
+                    });
                   });
                 });
-              });
 
-            case 2:
-              return _context.abrupt("return", _context.sent);
+              case 2:
+                return _context.abrupt("return", _context.sent);
 
-            case 3:
-            case "end":
-              return _context.stop();
+              case 3:
+              case "end":
+                return _context.stop();
+            }
           }
-        }
-      }, _callee);
-    }))
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }()
   );
 }
-},{"@babel/runtime/regenerator":"../../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../../node_modules/@babel/runtime/helpers/asyncToGenerator.js","http":"../../node_modules/stream-http/index.js"}],"../../node_modules/vue-router/dist/vue-router.esm.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"../../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../../node_modules/@babel/runtime/helpers/asyncToGenerator.js","http":"../../node_modules/stream-http/index.js","buffer":"../../node_modules/buffer/index.js"}],"../../node_modules/vue-router/dist/vue-router.esm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -21715,12 +21730,12 @@ var actions = {
     var _getSubjects = (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
     _regenerator.default.mark(function _callee(_ref) {
-      var state, commit, ret;
+      var state, commit, dispatch, ret;
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              state = _ref.state, commit = _ref.commit;
+              state = _ref.state, commit = _ref.commit, dispatch = _ref.dispatch;
               _context.next = 3;
               return window.apis.getSubjects();
 
@@ -21730,7 +21745,13 @@ var actions = {
                 list: ret.subjects
               });
 
-            case 5:
+              if (ret.subjects.length) {
+                dispatch('getArticles', {
+                  sid: ret.subjects[0]._id
+                });
+              }
+
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -21743,6 +21764,41 @@ var actions = {
     }
 
     return getSubjects;
+  }(),
+  getArticles: function () {
+    var _getArticles = (0, _asyncToGenerator2.default)(
+    /*#__PURE__*/
+    _regenerator.default.mark(function _callee2(_ref2, payload) {
+      var state, commit, dispatch, ret;
+      return _regenerator.default.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              state = _ref2.state, commit = _ref2.commit, dispatch = _ref2.dispatch;
+              _context2.next = 3;
+              return window.apis.getArticles({
+                query: "?sid=".concat(payload.sid)
+              });
+
+            case 3:
+              ret = _context2.sent;
+              commit('setArticle', {
+                list: ret.articles
+              });
+
+            case 5:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    function getArticles(_x2, _x3) {
+      return _getArticles.apply(this, arguments);
+    }
+
+    return getArticles;
   }()
 };
 var _default = actions;
@@ -21758,8 +21814,14 @@ var mutations = {
   setSubjects: function setSubjects(state, payload) {
     state.subjects = payload.list;
   },
+  setArticle: function setArticle(state, payload) {
+    state.articles = payload.list;
+  },
   setPreview: function setPreview(state, payload) {
     state.preview = payload.text;
+  },
+  setSid: function setSid(state, payload) {
+    state.sid = payload.sid;
   }
 };
 var _default = mutations;

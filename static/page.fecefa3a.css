@@ -5,6 +5,7 @@
   width: 100%;
   height: 100%;
   background: #dddddd;
+  overflow-y: auto;
 }
 .component-subjects .subject[data-v-837b4a] {
   display: flex;
@@ -31,6 +32,7 @@
   width: 100%;
   height: 100%;
   background: #eeeeee;
+  overflow-y: auto;
 }
 .component-article .article[data-v-b9e76c] {
   display: flex;

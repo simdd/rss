@@ -36,6 +36,7 @@ export default {
   width: 100%;
   height: 100%;
   background: #eeeeee;
+  overflow-y: auto;
 
   .article {
     display: flex;

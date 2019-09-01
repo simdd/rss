@@ -30,6 +30,7 @@ export default {
   width: 100%;
   height: 100%;
   background: #dddddd;
+  overflow-y: auto;
 
   .subject {
     display: flex;
