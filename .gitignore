@@ -5,4 +5,4 @@ dist/*
 .idea/
 .cache/
 .vscode/
-
+static/*

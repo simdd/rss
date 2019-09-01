@@ -8910,14 +8910,14 @@ var _default = _vue.default.extend({
 });
 
 exports.default = _default;
-        var $579b9c = exports.default || module.exports;
+        var $9dfd49 = exports.default || module.exports;
       
-      if (typeof $579b9c === 'function') {
-        $579b9c = $579b9c.options;
+      if (typeof $9dfd49 === 'function') {
+        $9dfd49 = $9dfd49.options;
       }
     
         /* template */
-        Object.assign($579b9c, (function () {
+        Object.assign($9dfd49, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8944,9 +8944,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$579b9c', $579b9c);
+            api.createRecord('$9dfd49', $9dfd49);
           } else {
-            api.reload('$579b9c', $579b9c);
+            api.reload('$9dfd49', $9dfd49);
           }
         }
 
@@ -13134,7 +13134,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "0.0.0.0" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58510" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8230" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
