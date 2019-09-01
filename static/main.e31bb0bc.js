@@ -12958,6 +12958,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var state = {
+  preview: 'hi',
   subjects: [{
     id: 0,
     title: 'baidu FEX'
@@ -12995,15 +12996,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var actions = {
-  getDemo: function getDemo(_ref) {
+  getDemo: function getDemo(_ref, text) {
     var state = _ref.state,
         dispatch = _ref.dispatch;
-    return new Promise(function (resolve, reject) {
-      dispatch('unloadModule', {
-        info: {
-          name: 'test'
-        }
-      });
+    dispatch('setPreview', {
+      text: text
     });
   }
 };
@@ -13017,8 +13014,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var mutations = {
-  setText: function setText(state, payload) {
-    state.text = 'haha';
+  setPreview: function setPreview(state, payload) {
+    state.preview = payload.text;
   }
 };
 var _default = mutations;

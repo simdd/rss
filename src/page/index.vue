@@ -4,17 +4,17 @@
       <v-subject :list="subjects"></v-subject>
     </section>
     <section class="middle">
-      <v-article :list="articles"></v-article>
+      <v-article :list="articles" @select="selectArticleHandle"></v-article>
     </section>
     <section class="right">
-      <v-preview></v-preview>
+      <v-preview :text="preview"></v-preview>
     </section>
   </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from 'vuex'
-const { mapState } = createNamespacedHelpers('index')
+const { mapState, mapActions, mapMutations } = createNamespacedHelpers('index')
 
 import Subject from './components/subject.vue'
 import Article from './components/article.vue'
@@ -33,9 +33,20 @@ export default {
 
   computed: {
     ...mapState({
+      preview: state => state.preview,
       subjects: state => state.subjects,
       articles: state => state.articles
     })
+  },
+
+  methods: {
+    ...mapMutations({
+      setPreview: 'setPreview'
+    }),
+
+    selectArticleHandle(info) {
+      this.setPreview({ text: info.title })
+    }
   },
 
   mounted() {

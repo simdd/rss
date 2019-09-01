@@ -1,6 +1,6 @@
 <template>
   <ul class="component-article" v-if="list && list.length">
-    <li class="article" :key="index" v-for="(item, index) in list">{{item.title}}</li>
+    <li class="article" :key="index" v-for="(item, index) in list" @click="$emit('select', item)">{{item.title}}</li>
   </ul>
 </template>
 
@@ -41,6 +41,11 @@ export default {
     padding-left: 10px;
     padding-right: 10px;
     cursor: pointer;
+    transition: 300ms;
+
+    &:hover {
+      background: #dddddd;
+    }
   }
 }
 </style>

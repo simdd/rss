@@ -1,9 +1,16 @@
 <template>
-  <section class="component-preview">preview</section>
+  <section class="component-preview">{{text}}</section>
 </template>
 
 <script>
 export default {
+  props: {
+    text: {
+      type: String,
+      default: ''
+    }
+  },
+
   data() {
     return {}
   }

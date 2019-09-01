@@ -18,6 +18,10 @@
   padding-left: 10px;
   padding-right: 10px;
   cursor: pointer;
+  transition: 300ms;
+}
+.component-subjects .subject[data-v-837b4a]:hover {
+  background: #cccccc;
 }
 
 .component-article[data-v-b9e76c] {
@@ -41,6 +45,10 @@
   padding-left: 10px;
   padding-right: 10px;
   cursor: pointer;
+  transition: 300ms;
+}
+.component-article .article[data-v-b9e76c]:hover {
+  background: #dddddd;
 }
 
 .component-preview[data-v-a524a4] {

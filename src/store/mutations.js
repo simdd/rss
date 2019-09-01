@@ -1,6 +1,6 @@
 const mutations = {
-  setText(state, payload) {
-    state.text = 'haha'
+  setPreview(state, payload) {
+    state.preview = payload.text
   }
 }
 

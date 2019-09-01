@@ -246,9 +246,19 @@ exports.default = _default;
         "ul",
         { staticClass: "component-article" },
         _vm._l(_vm.list, function(item, index) {
-          return _c("li", { key: index, staticClass: "article" }, [
-            _vm._v(_vm._s(item.title))
-          ])
+          return _c(
+            "li",
+            {
+              key: index,
+              staticClass: "article",
+              on: {
+                click: function($event) {
+                  return _vm.$emit("select", item)
+                }
+              }
+            },
+            [_vm._v(_vm._s(item.title))]
+          )
         }),
         0
       )
@@ -299,6 +309,12 @@ exports.default = void 0;
 //
 //
 var _default = {
+  props: {
+    text: {
+      type: String,
+      default: ''
+    }
+  },
   data: function data() {
     return {};
   }
@@ -317,7 +333,7 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "component-preview" }, [
-    _vm._v("preview")
+    _vm._v(_vm._s(_vm.text))
   ])
 }
 var staticRenderFns = []
@@ -378,7 +394,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var _createNamespacedHelp = (0, _vuex.createNamespacedHelpers)('index'),
-    mapState = _createNamespacedHelp.mapState;
+    mapState = _createNamespacedHelp.mapState,
+    mapActions = _createNamespacedHelp.mapActions,
+    mapMutations = _createNamespacedHelp.mapMutations;
 
 var _default = {
   components: {
@@ -390,6 +408,9 @@ var _default = {
     return {};
   },
   computed: _objectSpread({}, mapState({
+    preview: function preview(state) {
+      return state.preview;
+    },
     subjects: function subjects(state) {
       return state.subjects;
     },
@@ -397,6 +418,15 @@ var _default = {
       return state.articles;
     }
   })),
+  methods: _objectSpread({}, mapMutations({
+    setPreview: 'setPreview'
+  }), {
+    selectArticleHandle: function selectArticleHandle(info) {
+      this.setPreview({
+        text: info.title
+      });
+    }
+  }),
   mounted: function mounted() {
     window.ipc.send('asynchronous-message', 'ping');
   }
@@ -425,11 +455,21 @@ exports.default = _default;
     _c(
       "section",
       { staticClass: "middle" },
-      [_c("v-article", { attrs: { list: _vm.articles } })],
+      [
+        _c("v-article", {
+          attrs: { list: _vm.articles },
+          on: { select: _vm.selectArticleHandle }
+        })
+      ],
       1
     ),
     _vm._v(" "),
-    _c("section", { staticClass: "right" }, [_c("v-preview")], 1)
+    _c(
+      "section",
+      { staticClass: "right" },
+      [_c("v-preview", { attrs: { text: _vm.preview } })],
+      1
+    )
   ])
 }
 var staticRenderFns = []

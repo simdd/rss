@@ -39,6 +39,11 @@ export default {
     padding-left: 10px;
     padding-right: 10px;
     cursor: pointer;
+    transition: 300ms;
+
+    &:hover {
+      background: #cccccc;
+    }
   }
 }
 </style>

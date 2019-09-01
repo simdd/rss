@@ -1,4 +1,5 @@
 const state = {
+  preview: 'hi',
   subjects: [
     {
       id: 0,
