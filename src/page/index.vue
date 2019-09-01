@@ -21,6 +21,8 @@ import Article from './components/article.vue'
 import Preview from './components/preview.vue'
 
 export default {
+  name: 'index',
+
   components: {
     'v-subject': Subject,
     'v-article': Article,
@@ -44,13 +46,17 @@ export default {
       setPreview: 'setPreview'
     }),
 
+    ...mapActions({
+      getSubjects: 'getSubjects'
+    }),
+
     selectArticleHandle(info) {
       this.setPreview({ text: info.title })
     }
   },
 
   mounted() {
-    window.ipc.send('asynchronous-message', 'ping')
+    this.getSubjects()
   }
 }
 </script>

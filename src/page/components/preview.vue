@@ -1,9 +1,16 @@
 <template>
-  <section class="component-preview">{{text}}</section>
+  <section class="component-preview">
+    <div v-if="text.length" class="text">{{text}}</div>
+    <div v-else class="empty">
+      <img draggable="false" class="img" src="../assets/empty.svg" alt />
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
+  name: 'preview',
+
   props: {
     text: {
       type: String,
@@ -24,5 +31,26 @@ export default {
   width: 100%;
   height: 100%;
   background: #ffffff;
+
+  .empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    .img {
+      width: 100px;
+      user-select: none;
+      opacity: 0.6;
+    }
+  }
+
+  .text {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+  }
 }
 </style>

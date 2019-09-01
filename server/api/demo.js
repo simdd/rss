@@ -5,7 +5,8 @@ exports.get = async ctx => {
   const feed = await parser.parseURL('https://aotu.io/atom.xml')
 
   var doc = {
-    url: 'https://aotu.io/atom.xml'
+    url: 'http://fex.baidu.com/feed.xml',
+    title: 'FEX baidu',
   }
 
   ctx.db.insert(doc, function(err, newDoc) {

@@ -1,6 +1,9 @@
 const actions = {
-  getDemo({ state, dispatch }, text) {
-    dispatch('setPreview', { text: text })
+  async getSubjects({ state, commit }) {
+    const ret = await window.apis.getSubjects()
+    commit('setSubjects', {
+      list: ret.subjects
+    })
   }
 }
 

@@ -58,6 +58,24 @@
   height: 100%;
   background: #ffffff;
 }
+.component-preview .empty[data-v-a524a4] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.component-preview .empty .img[data-v-a524a4] {
+  width: 100px;
+  user-select: none;
+  opacity: 0.6;
+}
+.component-preview .text[data-v-a524a4] {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+}
 
 .layout[data-v-6c1a9d] {
   display: flex;

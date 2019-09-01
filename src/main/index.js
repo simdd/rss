@@ -1,16 +1,16 @@
 import Vue from 'vue'
-const { ipcRenderer } = window.require('electron')
 
 import App from './index.vue'
+import apis from './apis'
 import router from './router'
 import store from '../store'
+
+window.apis = apis
 
 const vue = new Vue({
   render: h => h(App),
   store,
   router
 }).$mount('#app')
-
-window.ipc = ipcRenderer
 
 export default vue

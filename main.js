@@ -19,7 +19,7 @@ function createWindow() {
   win.loadFile('static/index.html')
 
   // 打开开发者工具
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   // 当 window 被关闭，这个事件会被触发。
   win.on('closed', () => {
@@ -50,20 +50,6 @@ app.on('activate', () => {
   if (win === null) {
     createWindow()
   }
-})
-
-// 在这个文件中，你可以续写应用剩下主进程代码。
-// 也可以拆分成几个文件，然后用 require 导入。
-
-// https://electronjs.org/docs/api/ipc-main
-ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
-  event.reply('asynchronous-reply', 'pong')
-})
-
-ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
-  event.returnValue = 'pong'
 })
 
 // 启动本地接口

@@ -1,11 +1,20 @@
 <template>
-  <ul class="component-article" v-if="list && list.length">
-    <li class="article" :key="index" v-for="(item, index) in list" @click="$emit('select', item)">{{item.title}}</li>
+  <ul class="component-article">
+    <template v-if="list && list.length">
+      <li
+        class="article"
+        :key="index"
+        v-for="(item, index) in list"
+        @click="$emit('select', item)"
+      >{{item.title}}</li>
+    </template>
   </ul>
 </template>
 
 <script>
 export default {
+  name: 'articles',
+
   props: {
     list: {
       type: Array,

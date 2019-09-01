@@ -1,11 +1,15 @@
 <template>
-  <ul class="component-subjects" v-if="list && list.length">
-    <li class="subject" :key="index" v-for="(item, index) in list">{{item.title}}</li>
+  <ul class="component-subjects">
+    <template v-if="list && list.length">
+      <li class="subject" :key="index" v-for="(item, index) in list">{{item.title}}</li>
+    </template>
   </ul>
 </template>
 
 <script>
 export default {
+  name: 'subject',
+
   props: {
     list: {
       type: Array,
