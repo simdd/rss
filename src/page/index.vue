@@ -51,7 +51,7 @@ export default {
     }),
 
     selectArticleHandle(info) {
-      this.setPreview({ text: info.title })
+      this.setPreview({ text: info.content })
     }
   },
 
@@ -86,9 +86,10 @@ export default {
   }
 
   .right {
-    display: flex;
+    display: inline-flex;
     width: 100%;
     height: 100%;
+    overflow: auto;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <section class="component-preview">
-    <div v-if="text.length" class="text">{{text}}</div>
+    <div v-if="text.length" class="markdown" v-html="text"></div>
     <div v-else class="empty">
       <img draggable="false" class="img" src="../assets/empty.svg" alt />
     </div>
@@ -24,12 +24,13 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .component-preview {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
+  overflow-y: auto;
   background: #ffffff;
 
   .empty {
@@ -45,12 +46,9 @@ export default {
       opacity: 0.6;
     }
   }
-
-  .text {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    font-size: 14px;
-  }
 }
+</style>
+
+<style lang="less">
+@import url(./markdown.less);
 </style>

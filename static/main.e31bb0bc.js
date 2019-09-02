@@ -8897,8 +8897,6 @@ exports.default = void 0;
 
 var _vue = _interopRequireDefault(require("vue"));
 
-require("./reset.css");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //
@@ -8910,14 +8908,14 @@ var _default = _vue.default.extend({
 });
 
 exports.default = _default;
-        var $9dfd49 = exports.default || module.exports;
+        var $579b9c = exports.default || module.exports;
       
-      if (typeof $9dfd49 === 'function') {
-        $9dfd49 = $9dfd49.options;
+      if (typeof $579b9c === 'function') {
+        $579b9c = $579b9c.options;
       }
     
         /* template */
-        Object.assign($9dfd49, (function () {
+        Object.assign($579b9c, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -8944,9 +8942,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$9dfd49', $9dfd49);
+            api.createRecord('$579b9c', $579b9c);
           } else {
-            api.reload('$9dfd49', $9dfd49);
+            api.reload('$579b9c', $579b9c);
           }
         }
 
@@ -8957,7 +8955,7 @@ render._withStripped = true
       
       }
     })();
-},{"vue":"../../node_modules/vue/dist/vue.runtime.esm.js","./reset.css":"reset.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js"}],"../../node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
+},{"vue":"../../node_modules/vue/dist/vue.runtime.esm.js","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js"}],"../../node_modules/@babel/runtime/node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
@@ -21888,6 +21886,8 @@ exports.default = void 0;
 
 var _vue = _interopRequireDefault(require("vue"));
 
+require("./reset.css");
+
 var _index = _interopRequireDefault(require("./index.vue"));
 
 var _apis = _interopRequireDefault(require("./apis"));
@@ -21908,7 +21908,7 @@ var vue = new _vue.default({
 }).$mount('#app');
 var _default = vue;
 exports.default = _default;
-},{"vue":"../../node_modules/vue/dist/vue.runtime.esm.js","./index.vue":"index.vue","./apis":"apis.js","./router":"router.js","../store":"../store/index.js"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"../../node_modules/vue/dist/vue.runtime.esm.js","./reset.css":"reset.css","./index.vue":"index.vue","./apis":"apis.js","./router":"router.js","../store":"../store/index.js"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -21936,7 +21936,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "0.0.0.0" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6581" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61891" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

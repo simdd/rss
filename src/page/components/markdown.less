@@ -1,0 +1,224 @@
+@site-text-color: #000000;
+@site-heading-color: #000000;
+@site-border-color-split: #dddddd;
+@site-text-color-secondary: #000000;
+@primary-color: #000000;
+@blue-9: #45f;
+@magenta-7: #45f;
+@line-height-base: 1;
+@font-size-base: 14px;
+@border-color-split: #000000;
+
+.markdown {
+  color: @site-text-color;
+  font-size: 14px;
+  line-height: 2;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  word-break: break-all;
+
+  .highlight {
+    line-height: 1.5;
+  }
+
+  img {
+    max-width: ~'calc(100% - 32px)';
+  }
+
+  p > img {
+    margin: 34px 0;
+    box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
+  }
+
+  p > img.markdown-inline-image {
+    margin: 0;
+    box-shadow: none;
+  }
+
+  h1 {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    color: @site-heading-color;
+    font-weight: 500;
+    font-size: 30px;
+    font-family: sans-serif;
+    line-height: 38px;
+
+    .subtitle {
+      margin-left: 12px;
+    }
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    clear: both;
+    margin: 1.6em 0 0.6em;
+    color: @site-heading-color;
+    font-weight: 500;
+    font-family: Avenir, sans-serif;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  h5 {
+    font-size: 14px;
+  }
+  h6 {
+    font-size: 12px;
+  }
+
+  hr {
+    clear: both;
+    height: 1px;
+    margin: 56px 0;
+    background: @site-border-color-split;
+    border: 0;
+  }
+
+  p,
+  pre {
+    margin: 1em 0;
+  }
+
+  ul > li {
+    margin-left: 20px;
+    padding-left: 4px;
+    &:empty {
+      display: none;
+    }
+  }
+
+  ol > li {
+    margin-left: 20px;
+    padding-left: 4px;
+    list-style-type: decimal;
+  }
+
+  ul > li > p,
+  ol > li > p {
+    margin: 0.2em 0;
+  }
+
+  code {
+    margin: 0 1px;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+    background: #f2f4f5;
+    border: 1px solid #eee;
+    border-radius: 3px;
+  }
+
+  pre {
+    font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    background: #f2f4f5;
+    border-radius: 4px;
+    padding: 10px;
+  }
+
+  pre code {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    color: @site-text-color;
+    font-size: @font-size-base - 1px;
+    background: #f2f4f5;
+    border: none;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  > table {
+    width: 100%;
+    margin: 8px 0 16px;
+    empty-cells: show;
+    border: 1px solid @site-border-color-split;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  > table th {
+    color: #5c6b77;
+    font-weight: 500;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  > table th,
+  > table td {
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid @site-border-color-split;
+  }
+
+  blockquote {
+    margin: 1em 0;
+    padding-left: 0.8em;
+    color: @site-text-color-secondary;
+    font-size: 90%;
+    border-left: 4px solid @site-border-color-split;
+  }
+
+  blockquote p {
+    margin: 0;
+  }
+
+  .anchor {
+    margin-left: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .waiting {
+    color: #ccc;
+    cursor: not-allowed;
+  }
+
+  a.edit-button {
+    display: inline-block;
+    margin-left: 8px;
+    text-decoration: none;
+
+    i {
+      color: @site-text-color-secondary;
+
+      &:hover {
+        color: @primary-color;
+      }
+    }
+
+    .anticon {
+      display: block;
+      font-size: 16px;
+    }
+  }
+
+  h1:hover .anchor,
+  h2:hover .anchor,
+  h3:hover .anchor,
+  h4:hover .anchor,
+  h5:hover .anchor,
+  h6:hover .anchor {
+    display: inline-block;
+    opacity: 1;
+  }
+
+  > br,
+  > p > br {
+    clear: both;
+  }
+}

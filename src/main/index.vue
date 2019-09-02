@@ -5,10 +5,10 @@
 <script>
 import Vue from 'vue'
 
-import './reset.css'
 export default Vue.extend({
   name: 'app'
 })
 </script>
 
-<style lang="less"></style>
+<style lang="less">
+</style>
