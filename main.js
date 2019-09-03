@@ -15,6 +15,8 @@ function createWindow() {
     }
   })
 
+  win.removeMenu()
+
   // 加载index.html文件
   win.loadFile('static/index.html')
 

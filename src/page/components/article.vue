@@ -9,7 +9,7 @@
         @click="$emit('select', item, index)"
       >{{item.title}}</li>
     </template>
-    <v-skeleton></v-skeleton>
+    <v-skeleton v-else></v-skeleton>
   </ul>
 </template>
 
@@ -50,6 +50,10 @@ export default {
   height: 100%;
   background: #eeeeee;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 
   .article {
     display: flex;

@@ -174,14 +174,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $89f7e0 = exports.default || module.exports;
+        var $837b4a = exports.default || module.exports;
       
-      if (typeof $89f7e0 === 'function') {
-        $89f7e0 = $89f7e0.options;
+      if (typeof $837b4a === 'function') {
+        $837b4a = $837b4a.options;
       }
     
         /* template */
-        Object.assign($89f7e0, (function () {
+        Object.assign($837b4a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -219,7 +219,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-89f7e0",
+            _scopeId: "data-v-837b4a",
             functional: undefined
           };
         })());
@@ -232,9 +232,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$89f7e0', $89f7e0);
+            api.createRecord('$837b4a', $837b4a);
           } else {
-            api.reload('$89f7e0', $89f7e0);
+            api.reload('$837b4a', $837b4a);
           }
         }
 
@@ -266,14 +266,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $5a7e62 = exports.default || module.exports;
+        var $b9568e = exports.default || module.exports;
       
-      if (typeof $5a7e62 === 'function') {
-        $5a7e62 = $5a7e62.options;
+      if (typeof $b9568e === 'function') {
+        $b9568e = $b9568e.options;
       }
     
         /* template */
-        Object.assign($5a7e62, (function () {
+        Object.assign($b9568e, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -298,7 +298,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-5a7e62",
+            _scopeId: "data-v-b9568e",
             functional: undefined
           };
         })());
@@ -311,9 +311,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$5a7e62', $5a7e62);
+            api.createRecord('$b9568e', $b9568e);
           } else {
-            api.reload('$5a7e62', $5a7e62);
+            api.reload('$b9568e', $b9568e);
           }
         }
 
@@ -373,14 +373,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $814f09 = exports.default || module.exports;
+        var $b9e76c = exports.default || module.exports;
       
-      if (typeof $814f09 === 'function') {
-        $814f09 = $814f09.options;
+      if (typeof $b9e76c === 'function') {
+        $b9e76c = $b9e76c.options;
       }
     
         /* template */
-        Object.assign($814f09, (function () {
+        Object.assign($b9e76c, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -406,9 +406,7 @@ exports.default = _default;
               [_vm._v(_vm._s(item.title))]
             )
           })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("v-skeleton")
+        : _c("v-skeleton")
     ],
     2
   )
@@ -420,7 +418,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-814f09",
+            _scopeId: "data-v-b9e76c",
             functional: undefined
           };
         })());
@@ -433,9 +431,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$814f09', $814f09);
+            api.createRecord('$b9e76c', $b9e76c);
           } else {
-            api.reload('$814f09', $814f09);
+            api.reload('$b9e76c', $b9e76c);
           }
         }
 
@@ -484,14 +482,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $bf042e = exports.default || module.exports;
+        var $a524a4 = exports.default || module.exports;
       
-      if (typeof $bf042e === 'function') {
-        $bf042e = $bf042e.options;
+      if (typeof $a524a4 === 'function') {
+        $a524a4 = $a524a4.options;
       }
     
         /* template */
-        Object.assign($bf042e, (function () {
+        Object.assign($a524a4, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -521,7 +519,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-bf042e",
+            _scopeId: "data-v-a524a4",
             functional: undefined
           };
         })());
@@ -534,9 +532,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$bf042e', $bf042e);
+            api.createRecord('$a524a4', $a524a4);
           } else {
-            api.reload('$bf042e', $bf042e);
+            api.reload('$a524a4', $a524a4);
           }
         }
 
@@ -547,7 +545,130 @@ render._withStripped = true
       
       }
     })();
-},{"./../assets/empty.svg":[["empty.e49f51da.svg","../page/assets/empty.svg"],"../page/assets/empty.svg"],"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"../page/index.vue":[function(require,module,exports) {
+},{"./..\\assets\\empty.svg":[["empty.e49f51da.svg","../page/assets/empty.svg"],"../page/assets/empty.svg"],"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"../page/components/btn.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'btn',
+  data: function data() {
+    return {
+      visible: false
+    };
+  },
+  methods: {
+    enter: function enter(e) {
+      var url = e.target.value;
+      this.$emit('add', url);
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    document.addEventListener('click', function () {
+      _this.visible = false;
+    });
+  }
+};
+exports.default = _default;
+        var $ade960 = exports.default || module.exports;
+      
+      if (typeof $ade960 === 'function') {
+        $ade960 = $ade960.options;
+      }
+    
+        /* template */
+        Object.assign($ade960, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    {
+      staticClass: "component-btn",
+      on: {
+        click: function($event) {
+          $event.stopPropagation()
+          _vm.visible = true
+        }
+      }
+    },
+    [
+      _c("span", { staticClass: "btn" }, [_vm._v("+")]),
+      _vm._v(" "),
+      _vm.visible
+        ? _c("input", {
+            staticClass: "link",
+            class: { hide: !_vm.visible },
+            attrs: { type: "text", placeholder: "输入要订阅的url" },
+            on: {
+              keydown: function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                ) {
+                  return null
+                }
+                return _vm.enter($event)
+              }
+            }
+          })
+        : _vm._e()
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-ade960",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$ade960', $ade960);
+          } else {
+            api.reload('$ade960', $ade960);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"../page/index.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -565,6 +686,8 @@ var _article = _interopRequireDefault(require("./components/article.vue"));
 
 var _preview = _interopRequireDefault(require("./components/preview.vue"));
 
+var _btn = _interopRequireDefault(require("./components/btn.vue"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -581,7 +704,8 @@ var _default = {
   components: {
     'v-subject': _subject.default,
     'v-article': _article.default,
-    'v-preview': _preview.default
+    'v-preview': _preview.default,
+    'v-btn': _btn.default
   },
   data: function data() {
     return {};
@@ -608,7 +732,8 @@ var _default = {
     setAidx: 'setAidx'
   }), {}, mapActions({
     getSubjects: 'getSubjects',
-    getArticles: 'getArticles'
+    getArticles: 'getArticles',
+    postSubjects: 'postSubjects'
   }), {
     selectArticleHandle: function selectArticleHandle(info, index) {
       this.setPreview({
@@ -622,6 +747,11 @@ var _default = {
       this.getArticles({
         sid: info._id
       });
+    },
+    addSubjectHandle: function addSubjectHandle(url) {
+      this.postSubjects({
+        url: url
+      });
     }
   }),
   mounted: function mounted() {
@@ -629,50 +759,57 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $e9db14 = exports.default || module.exports;
+        var $6c1a9d = exports.default || module.exports;
       
-      if (typeof $e9db14 === 'function') {
-        $e9db14 = $e9db14.options;
+      if (typeof $6c1a9d === 'function') {
+        $6c1a9d = $6c1a9d.options;
       }
     
         /* template */
-        Object.assign($e9db14, (function () {
+        Object.assign($6c1a9d, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "layout" }, [
-    _c(
-      "section",
-      { staticClass: "left" },
-      [
-        _c("v-subject", {
-          attrs: { sid: _vm.sid, list: _vm.subjects },
-          on: { select: _vm.selectSubjectHandle }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "section",
-      { staticClass: "middle" },
-      [
-        _c("v-article", {
-          attrs: { aidx: _vm.aidx, list: _vm.articles },
-          on: { select: _vm.selectArticleHandle }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "section",
-      { staticClass: "right" },
-      [_c("v-preview", { attrs: { text: _vm.preview } })],
-      1
-    )
-  ])
+  return _c(
+    "div",
+    { staticClass: "layout" },
+    [
+      _c(
+        "section",
+        { staticClass: "left" },
+        [
+          _c("v-subject", {
+            attrs: { sid: _vm.sid, list: _vm.subjects },
+            on: { select: _vm.selectSubjectHandle }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "middle" },
+        [
+          _c("v-article", {
+            attrs: { aidx: _vm.aidx, list: _vm.articles },
+            on: { select: _vm.selectArticleHandle }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "right" },
+        [_c("v-preview", { attrs: { text: _vm.preview } })],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-btn", { on: { add: _vm.addSubjectHandle } })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -681,7 +818,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-e9db14",
+            _scopeId: "data-v-6c1a9d",
             functional: undefined
           };
         })());
@@ -694,9 +831,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$e9db14', $e9db14);
+            api.createRecord('$6c1a9d', $6c1a9d);
           } else {
-            api.reload('$e9db14', $e9db14);
+            api.reload('$6c1a9d', $6c1a9d);
           }
         }
 
@@ -707,7 +844,7 @@ render._withStripped = true
       
       }
     })();
-},{"@babel/runtime/helpers/defineProperty":"../../node_modules/@babel/runtime/helpers/defineProperty.js","vuex":"../../node_modules/vuex/dist/vuex.esm.js","./components/subject.vue":"../page/components/subject.vue","./components/article.vue":"../page/components/article.vue","./components/preview.vue":"../page/components/preview.vue","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/defineProperty":"../../node_modules/@babel/runtime/helpers/defineProperty.js","vuex":"../../node_modules/vuex/dist/vuex.esm.js","./components/subject.vue":"../page/components/subject.vue","./components/article.vue":"../page/components/article.vue","./components/preview.vue":"../page/components/preview.vue","./components/btn.vue":"../page/components/btn.vue","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -735,7 +872,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "0.0.0.0" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61281" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "5137" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

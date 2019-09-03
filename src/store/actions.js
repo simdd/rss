@@ -32,6 +32,16 @@ const actions = {
     commit('setArticle', {
       list: ret.articles
     })
+  },
+
+  async postSubjects({ state, commit, dispatch }, payload) {
+    const ret = await window.apis.postSubjects({
+      body: {
+        url: payload.url
+      }
+    })
+
+    console.log(ret)
   }
 }
 

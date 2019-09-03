@@ -34,6 +34,7 @@ export default {
 
 <style lang="less" scoped>
 .component-subjects {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -41,6 +42,10 @@ export default {
   height: 100%;
   background: #dddddd;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 
   .subject {
     display: flex;

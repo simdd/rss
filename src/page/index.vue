@@ -9,6 +9,7 @@
     <section class="right">
       <v-preview :text="preview"></v-preview>
     </section>
+    <v-btn @add="addSubjectHandle"></v-btn>
   </div>
 </template>
 
@@ -19,6 +20,7 @@ const { mapState, mapActions, mapMutations } = createNamespacedHelpers('index')
 import Subject from './components/subject.vue'
 import Article from './components/article.vue'
 import Preview from './components/preview.vue'
+import Btn from './components/btn.vue'
 
 export default {
   name: 'index',
@@ -26,7 +28,8 @@ export default {
   components: {
     'v-subject': Subject,
     'v-article': Article,
-    'v-preview': Preview
+    'v-preview': Preview,
+    'v-btn': Btn
   },
 
   data() {
@@ -51,7 +54,8 @@ export default {
 
     ...mapActions({
       getSubjects: 'getSubjects',
-      getArticles: 'getArticles'
+      getArticles: 'getArticles',
+      postSubjects: 'postSubjects'
     }),
 
     selectArticleHandle(info, index) {
@@ -61,6 +65,10 @@ export default {
 
     selectSubjectHandle(info) {
       this.getArticles({ sid: info._id })
+    },
+
+    addSubjectHandle(url) {
+      this.postSubjects({ url })
     }
   },
 

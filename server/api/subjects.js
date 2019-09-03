@@ -13,3 +13,27 @@ exports.get = async ctx => {
     }
   }
 }
+
+exports.add = async ctx => {
+  const url = ctx.params.url
+  const feed = await parser.parseURL(url)
+
+  var doc = {
+    url: url,
+    title: feed.title
+  }
+
+  const docs = new Promise(resolve => {
+    ctx.db.insert(doc, function(err, newDoc) {
+      resolve(newDoc)
+    })
+  })
+
+  ctx.body = {
+    errcode: 0,
+    errmsg: '',
+    data: {
+      subjects: docs
+    }
+  }
+}
