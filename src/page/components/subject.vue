@@ -1,7 +1,13 @@
 <template>
   <ul class="component-subjects">
     <template v-if="list && list.length">
-      <li class="subject" :key="index" v-for="(item, index) in list">{{item.title}}</li>
+      <li
+        class="subject"
+        :class="{'active': sid === item._id}"
+        :key="item._id"
+        v-for="item in list"
+        @click="$emit('select', item)"
+      >{{item.title}}</li>
     </template>
   </ul>
 </template>
@@ -11,6 +17,10 @@ export default {
   name: 'subject',
 
   props: {
+    sid: {
+      type: String,
+      default: ''
+    },
     list: {
       type: Array,
       default: () => []
@@ -39,6 +49,7 @@ export default {
     flex-shrink: 0;
     width: 100%;
     height: 40px;
+    color: #666666;
     font-size: 12px;
     border-bottom: 1px dashed #aaaaaa;
     padding-left: 10px;
@@ -49,6 +60,11 @@ export default {
     &:hover {
       background: #cccccc;
     }
+  }
+
+  .active {
+    color: #444444;
+    font-weight: 600;
   }
 }
 </style>

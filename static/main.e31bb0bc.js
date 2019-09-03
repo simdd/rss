@@ -21705,7 +21705,8 @@ var state = {
   preview: '',
   subjects: [],
   articles: [],
-  sid: ''
+  sid: '',
+  aidx: -1
 };
 var _default = state;
 exports.default = _default;
@@ -21744,6 +21745,9 @@ var actions = {
               });
 
               if (ret.subjects.length) {
+                commit('setSid', {
+                  sid: ret.subjects[0]._id
+                });
                 dispatch('getArticles', {
                   sid: ret.subjects[0]._id
                 });
@@ -21773,18 +21777,30 @@ var actions = {
           switch (_context2.prev = _context2.next) {
             case 0:
               state = _ref2.state, commit = _ref2.commit, dispatch = _ref2.dispatch;
-              _context2.next = 3;
+              commit('setSid', {
+                sid: payload.sid
+              });
+              commit('setAidx', {
+                aidx: -1
+              });
+              commit('setPreview', {
+                preview: ''
+              });
+              commit('setArticle', {
+                list: []
+              });
+              _context2.next = 7;
               return window.apis.getArticles({
                 query: "?sid=".concat(payload.sid)
               });
 
-            case 3:
+            case 7:
               ret = _context2.sent;
               commit('setArticle', {
                 list: ret.articles
               });
 
-            case 5:
+            case 9:
             case "end":
               return _context2.stop();
           }
@@ -21820,6 +21836,9 @@ var mutations = {
   },
   setSid: function setSid(state, payload) {
     state.sid = payload.sid;
+  },
+  setAidx: function setAidx(state, payload) {
+    state.aidx = payload.aidx;
   }
 };
 var _default = mutations;
@@ -21936,7 +21955,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "0.0.0.0" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61891" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61281" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

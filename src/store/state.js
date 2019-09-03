@@ -2,7 +2,8 @@ const state = {
   preview: '',
   subjects: [],
   articles: [],
-  sid: ''
+  sid: '',
+  aidx: -1
 }
 
 export default state

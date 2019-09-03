@@ -10,6 +10,9 @@ const mutations = {
   },
   setSid(state, payload) {
     state.sid = payload.sid
+  },
+  setAidx(state, payload) {
+    state.aidx = payload.aidx
   }
 }
 

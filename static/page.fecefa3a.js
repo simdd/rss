@@ -149,9 +149,19 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default = {
   name: 'subject',
   props: {
+    sid: {
+      type: String,
+      default: ''
+    },
     list: {
       type: Array,
       default: function _default() {
@@ -181,10 +191,21 @@ exports.default = _default;
     { staticClass: "component-subjects" },
     [
       _vm.list && _vm.list.length
-        ? _vm._l(_vm.list, function(item, index) {
-            return _c("li", { key: index, staticClass: "subject" }, [
-              _vm._v(_vm._s(item.title))
-            ])
+        ? _vm._l(_vm.list, function(item) {
+            return _c(
+              "li",
+              {
+                key: item._id,
+                staticClass: "subject",
+                class: { active: _vm.sid === item._id },
+                on: {
+                  click: function($event) {
+                    return _vm.$emit("select", item)
+                  }
+                }
+              },
+              [_vm._v(_vm._s(item.title))]
+            )
           })
         : _vm._e()
     ],
@@ -244,9 +265,14 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   name: 'articles',
   props: {
+    aidx: {
+      type: Number,
+      default: -1
+    },
     list: {
       type: Array,
       default: function _default() {
@@ -282,9 +308,10 @@ exports.default = _default;
               {
                 key: index,
                 staticClass: "article",
+                class: { active: _vm.aidx === index },
                 on: {
                   click: function($event) {
-                    return _vm.$emit("select", item)
+                    return _vm.$emit("select", item, index)
                   }
                 }
               },
@@ -355,6 +382,15 @@ var _default = {
   },
   data: function data() {
     return {};
+  },
+  watch: {
+    text: function text() {
+      var md = this.$refs.md;
+
+      if (md) {
+        md.scrollTop = 0;
+      }
+    }
   }
 };
 exports.default = _default;
@@ -370,7 +406,7 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "component-preview" }, [
+  return _c("section", { ref: "md", staticClass: "component-preview" }, [
     _vm.text.length
       ? _c("div", {
           staticClass: "markdown",
@@ -461,6 +497,12 @@ var _default = {
     return {};
   },
   computed: _objectSpread({}, mapState({
+    sid: function sid(state) {
+      return state.sid;
+    },
+    aidx: function aidx(state) {
+      return state.aidx;
+    },
     preview: function preview(state) {
       return state.preview;
     },
@@ -472,13 +514,23 @@ var _default = {
     }
   })),
   methods: _objectSpread({}, mapMutations({
-    setPreview: 'setPreview'
+    setPreview: 'setPreview',
+    setAidx: 'setAidx'
   }), {}, mapActions({
-    getSubjects: 'getSubjects'
+    getSubjects: 'getSubjects',
+    getArticles: 'getArticles'
   }), {
-    selectArticleHandle: function selectArticleHandle(info) {
+    selectArticleHandle: function selectArticleHandle(info, index) {
       this.setPreview({
         text: info.content
+      });
+      this.setAidx({
+        aidx: index
+      });
+    },
+    selectSubjectHandle: function selectSubjectHandle(info) {
+      this.getArticles({
+        sid: info._id
       });
     }
   }),
@@ -503,7 +555,12 @@ exports.default = _default;
     _c(
       "section",
       { staticClass: "left" },
-      [_c("v-subject", { attrs: { list: _vm.subjects } })],
+      [
+        _c("v-subject", {
+          attrs: { sid: _vm.sid, list: _vm.subjects },
+          on: { select: _vm.selectSubjectHandle }
+        })
+      ],
       1
     ),
     _vm._v(" "),
@@ -512,7 +569,7 @@ exports.default = _default;
       { staticClass: "middle" },
       [
         _c("v-article", {
-          attrs: { list: _vm.articles },
+          attrs: { aidx: _vm.aidx, list: _vm.articles },
           on: { select: _vm.selectArticleHandle }
         })
       ],
@@ -588,7 +645,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "0.0.0.0" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61891" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61281" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

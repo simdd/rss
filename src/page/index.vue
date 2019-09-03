@@ -1,10 +1,10 @@
 <template>
   <div class="layout">
     <section class="left">
-      <v-subject :list="subjects"></v-subject>
+      <v-subject :sid="sid" :list="subjects" @select="selectSubjectHandle"></v-subject>
     </section>
     <section class="middle">
-      <v-article :list="articles" @select="selectArticleHandle"></v-article>
+      <v-article :aidx="aidx" :list="articles" @select="selectArticleHandle"></v-article>
     </section>
     <section class="right">
       <v-preview :text="preview"></v-preview>
@@ -35,6 +35,8 @@ export default {
 
   computed: {
     ...mapState({
+      sid: state => state.sid,
+      aidx: state => state.aidx,
       preview: state => state.preview,
       subjects: state => state.subjects,
       articles: state => state.articles
@@ -43,15 +45,22 @@ export default {
 
   methods: {
     ...mapMutations({
-      setPreview: 'setPreview'
+      setPreview: 'setPreview',
+      setAidx: 'setAidx'
     }),
 
     ...mapActions({
-      getSubjects: 'getSubjects'
+      getSubjects: 'getSubjects',
+      getArticles: 'getArticles'
     }),
 
-    selectArticleHandle(info) {
+    selectArticleHandle(info, index) {
       this.setPreview({ text: info.content })
+      this.setAidx({ aidx: index })
+    },
+
+    selectSubjectHandle(info) {
+      this.getArticles({ sid: info._id })
     }
   },
 

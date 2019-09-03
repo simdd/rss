@@ -1,5 +1,5 @@
 <template>
-  <section class="component-preview">
+  <section ref="md" class="component-preview">
     <div v-if="text.length" class="markdown" v-html="text"></div>
     <div v-else class="empty">
       <img draggable="false" class="img" src="../assets/empty.svg" alt />
@@ -20,6 +20,15 @@ export default {
 
   data() {
     return {}
+  },
+
+  watch: {
+    text() {
+      const md = this.$refs.md
+      if (md) {
+        md.scrollTop = 0
+      }
+    }
   }
 }
 </script>

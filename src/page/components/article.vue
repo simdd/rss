@@ -3,9 +3,10 @@
     <template v-if="list && list.length">
       <li
         class="article"
+        :class="{'active': aidx === index}"
         :key="index"
         v-for="(item, index) in list"
-        @click="$emit('select', item)"
+        @click="$emit('select', item, index)"
       >{{item.title}}</li>
     </template>
   </ul>
@@ -16,6 +17,11 @@ export default {
   name: 'articles',
 
   props: {
+    aidx: {
+      type: Number,
+      default: -1
+    },
+
     list: {
       type: Array,
       default: () => []
@@ -44,7 +50,7 @@ export default {
     align-items: center;
     flex-shrink: 0;
     font-size: 12px;
-    color: #444444;
+    color: #666666;
     width: 100%;
     height: 80px;
     border-bottom: 1px dashed #aaaaaa;
@@ -56,6 +62,11 @@ export default {
     &:hover {
       background: #dddddd;
     }
+  }
+
+  .active {
+    color: #444444;
+    font-weight: 600;
   }
 }
 </style>
