@@ -9,12 +9,19 @@
         @click="$emit('select', item, index)"
       >{{item.title}}</li>
     </template>
+    <v-skeleton></v-skeleton>
   </ul>
 </template>
 
 <script>
+import Skeleton from './skeleton.vue'
+
 export default {
   name: 'articles',
+
+  components: {
+    'v-skeleton': Skeleton
+  },
 
   props: {
     aidx: {

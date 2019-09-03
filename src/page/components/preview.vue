@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .component-preview {
   display: flex;
   flex-direction: column;

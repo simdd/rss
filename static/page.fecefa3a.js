@@ -245,6 +245,85 @@ render._withStripped = true
       
       }
     })();
+},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"../page/components/skeleton.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'skeleton',
+  data: function data() {
+    return {};
+  }
+};
+exports.default = _default;
+        var $5a7e62 = exports.default || module.exports;
+      
+      if (typeof $5a7e62 === 'function') {
+        $5a7e62 = $5a7e62.options;
+      }
+    
+        /* template */
+        Object.assign($5a7e62, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "component-skeleton" }, [
+      _c("div", { staticClass: "skeleton-title" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "skeleton-content" })
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-5a7e62",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$5a7e62', $5a7e62);
+          } else {
+            api.reload('$5a7e62', $5a7e62);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"../page/components/article.vue":[function(require,module,exports) {
 "use strict";
 
@@ -252,6 +331,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+var _skeleton = _interopRequireDefault(require("./skeleton.vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
 //
 //
 //
@@ -268,6 +353,9 @@ exports.default = void 0;
 //
 var _default = {
   name: 'articles',
+  components: {
+    'v-skeleton': _skeleton.default
+  },
   props: {
     aidx: {
       type: Number,
@@ -318,7 +406,9 @@ exports.default = _default;
               [_vm._v(_vm._s(item.title))]
             )
           })
-        : _vm._e()
+        : _vm._e(),
+      _vm._v(" "),
+      _c("v-skeleton")
     ],
     2
   )
@@ -356,7 +446,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"../page/components/preview.vue":[function(require,module,exports) {
+},{"./skeleton.vue":"../page/components/skeleton.vue","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"../../node_modules/vue-hot-reload-api/dist/index.js","vue":"../../node_modules/vue/dist/vue.runtime.esm.js"}],"../page/components/preview.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -431,7 +521,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-bf042e",
             functional: undefined
           };
         })());
