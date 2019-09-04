@@ -577,6 +577,7 @@ var _default = {
     enter: function enter(e) {
       var url = e.target.value;
       this.$emit('add', url);
+      this.visible = false;
     }
   },
   mounted: function mounted() {
@@ -872,7 +873,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "0.0.0.0" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50304" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51032" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

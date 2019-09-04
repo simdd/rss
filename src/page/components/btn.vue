@@ -26,6 +26,7 @@ export default {
     enter(e) {
       const url = e.target.value
       this.$emit('add', url)
+      this.visible = false
     }
   },
 
