@@ -1,3 +1,6 @@
+const Parser = require('rss-parser')
+const parser = new Parser()
+
 exports.get = async ctx => {
   const docs = await new Promise(resolve => {
     ctx.db.find({}, function(err, docs) {
@@ -15,7 +18,7 @@ exports.get = async ctx => {
 }
 
 exports.add = async ctx => {
-  const url = ctx.params.url
+  const url = ctx.request.body.url
   const feed = await parser.parseURL(url)
 
   var doc = {
@@ -23,7 +26,7 @@ exports.add = async ctx => {
     title: feed.title
   }
 
-  const docs = new Promise(resolve => {
+  const docs = await new Promise(resolve => {
     ctx.db.insert(doc, function(err, newDoc) {
       resolve(newDoc)
     })
@@ -33,7 +36,7 @@ exports.add = async ctx => {
     errcode: 0,
     errmsg: '',
     data: {
-      subjects: docs
+      subject: docs
     }
   }
 }

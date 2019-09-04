@@ -66,7 +66,7 @@ export default {
   .link {
     position: absolute;
     bottom: 110%;
-    left: 100%;
+    left: 90%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -77,9 +77,10 @@ export default {
     background: #dddddd;
     color: #333333;
     font-size: 12px;
-    border: 1px dashed #777777;
+    border: none;
+    border-bottom: 1px dashed #777777;
     border-radius: 10px;
-    box-shadow: 1px 1px 1px #bbbbbb;
+    box-shadow: 1px 1px 3px 1px #bbbbbb;
   }
 
   .hide {

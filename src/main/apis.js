@@ -1,11 +1,11 @@
-import http from 'http'
+import request from 'request'
 
 const HOST = `http://127.0.0.1`
 const PORT = 37373
 const apis = {
   getSubjects: get({ url: `${HOST}:${PORT}/subjects` }),
   getArticles: get({ url: `${HOST}:${PORT}/articles` }),
-  postSubjects: post({ host: HOST, port: PORT, url: `/subjects` })
+  postSubjects: post({ url: `${HOST}:${PORT}/subjects` })
 }
 
 export default apis
@@ -13,16 +13,8 @@ export default apis
 function get(option) {
   return async config => {
     return await new Promise(resolve => {
-      let body = []
-
-      http.get(`${option.url}${config ? config.query : ''}`, function(res) {
-        res.on('data', function(chunk) {
-          body.push(chunk)
-        })
-        res.on('end', function() {
-          body = Buffer.concat(body).toString()
-          resolve(JSON.parse(body).data)
-        })
+      request.get(`${option.url}${config ? config.query : ''}`, function(error, res, body) {
+        resolve(JSON.parse(body).data)
       })
     })
   }
@@ -31,31 +23,16 @@ function get(option) {
 function post(option) {
   return async config => {
     return await new Promise(resolve => {
-      let body = []
-      console.log({
-        host: option.host,
-        port: option.port,
-        path: option.url,
-        method: 'POST'
-      })
-      http.request(
+      request.post(
+        option.url,
         {
-          host: '127.0.0.1',
-          port: option.port,
-          path: option.url,
-          method: 'POST'
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(config.body)
         },
-        function(res) {
-          res.on('data', function(chunk) {
-            body.push(chunk)
-          })
-          res.on('end', function() {
-            body = Buffer.concat(body).toString()
-            resolve(JSON.parse(body).data)
-          })
-          res.on('error', function(e) {
-            console.log(e)
-          })
+        function(error, res, body) {
+          resolve(JSON.parse(body).data)
         }
       )
     })

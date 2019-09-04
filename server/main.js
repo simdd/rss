@@ -1,9 +1,12 @@
 const Koa = require('koa')
 const Nedb = require('nedb')
+var bodyParser = require('koa-bodyparser')
 
 const app = new Koa()
-const db = new Nedb({ filename: 'server/urls', autoload: true });
+const db = new Nedb({ filename: 'server/urls', autoload: true })
 const router = require('./router')
+
+app.use(bodyParser())
 
 app.use(async (ctx, next) => {
   console.log('path in: ', ctx.request.path)

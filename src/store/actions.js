@@ -41,7 +41,12 @@ const actions = {
       }
     })
 
-    console.log(ret)
+    const subjects = state.subjects.slice()
+    subjects.unshift(ret.subject)
+
+    commit('setSubjects', {
+      list: subjects
+    })
   }
 }
 
