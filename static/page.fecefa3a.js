@@ -581,6 +581,10 @@ var _default = {
       var url = e.target.value;
       this.$emit('add', url);
       this.visible = false;
+    },
+    add: function add() {
+      this.visible = true;
+      this.$refs.ipt.focus();
     }
   },
   mounted: function mounted() {
@@ -611,31 +615,30 @@ exports.default = _default;
       on: {
         click: function($event) {
           $event.stopPropagation()
-          _vm.visible = true
+          return _vm.add($event)
         }
       }
     },
     [
       _c("span", { staticClass: "btn" }, [_vm._v("+")]),
       _vm._v(" "),
-      _vm.visible
-        ? _c("input", {
-            staticClass: "link",
-            class: { hide: !_vm.visible },
-            attrs: { type: "text", placeholder: "输入要订阅的url" },
-            on: {
-              keydown: function($event) {
-                if (
-                  !$event.type.indexOf("key") &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
-                return _vm.enter($event)
-              }
+      _c("input", {
+        ref: "ipt",
+        staticClass: "link",
+        class: { hide: !_vm.visible },
+        attrs: { type: "text", placeholder: "输入要订阅的url" },
+        on: {
+          keydown: function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
             }
-          })
-        : _vm._e()
+            return _vm.enter($event)
+          }
+        }
+      })
     ]
   )
 }

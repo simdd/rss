@@ -354,7 +354,10 @@ to {
   box-shadow: 1px 1px 3px 1px #bbbbbb;
 }
 .component-btn .hide[data-v-438b58] {
-  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .layout[data-v-e9db14] {

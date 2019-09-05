@@ -1,8 +1,8 @@
 <template>
-  <section class="component-btn" @click.stop="visible = true">
+  <section class="component-btn" @click.stop="add">
     <span class="btn">+</span>
     <input
-      v-if="visible"
+      ref="ipt"
       class="link"
       :class="{'hide': !visible}"
       type="text"
@@ -27,6 +27,11 @@ export default {
       const url = e.target.value
       this.$emit('add', url)
       this.visible = false
+    },
+
+    add() {
+      this.visible = true
+      this.$refs.ipt.focus()
     }
   },
 
@@ -85,7 +90,10 @@ export default {
   }
 
   .hide {
-    display: none;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
   }
 }
 </style>
