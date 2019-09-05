@@ -8913,6 +8913,11 @@ var _default = _vue.default.extend({
         event.preventDefault();
         shell.openExternal(event.target.href);
       }
+
+      if (event.target.nodeName === 'IMG' && event.target.src && /^http/.test(event.target.src)) {
+        event.preventDefault();
+        shell.openExternal(event.target.src);
+      }
     });
   }
 });

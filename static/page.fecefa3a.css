@@ -42,11 +42,19 @@
   height: 40px;
   transform-origin: left;
   background: #cccccc;
-  animation: skeleton-stretch-data-v-5a7e62 500ms -300ms linear infinite alternate;
+  animation: skeleton-stretch-data-v-5a7e62 500ms -400ms linear infinite alternate;
 }
 .component-skeleton .skeleton-content[data-v-5a7e62] {
   width: 70%;
   height: 30px;
+  margin-top: 10px;
+  transform-origin: left;
+  background: #dddccc;
+  animation: skeleton-stretch-data-v-5a7e62 500ms -200ms linear infinite alternate;
+}
+.component-skeleton .skeleton-sub[data-v-5a7e62] {
+  width: 90%;
+  height: 20px;
   margin-top: 10px;
   transform-origin: left;
   background: #dddddd;

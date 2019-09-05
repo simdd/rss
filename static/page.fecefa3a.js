@@ -259,6 +259,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   name: 'skeleton',
   data: function data() {
@@ -288,7 +289,9 @@ var staticRenderFns = [
     return _c("section", { staticClass: "component-skeleton" }, [
       _c("div", { staticClass: "skeleton-title" }),
       _vm._v(" "),
-      _c("div", { staticClass: "skeleton-content" })
+      _c("div", { staticClass: "skeleton-content" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "skeleton-sub" })
     ])
   }
 ]

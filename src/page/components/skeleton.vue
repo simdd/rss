@@ -2,6 +2,7 @@
   <section class="component-skeleton">
     <div class="skeleton-title"></div>
     <div class="skeleton-content"></div>
+    <div class="skeleton-sub"></div>
   </section>
 </template>
 
@@ -24,12 +25,21 @@ export default {
     height: 40px;
     transform-origin: left;
     background: #cccccc;
-    animation: skeleton-stretch 500ms -300ms linear infinite alternate;
+    animation: skeleton-stretch 500ms -400ms linear infinite alternate;
   }
 
   .skeleton-content {
     width: 70%;
     height: 30px;
+    margin-top: 10px;
+    transform-origin: left;
+    background: #dddccc;
+    animation: skeleton-stretch 500ms -200ms linear infinite alternate;
+  }
+
+  .skeleton-sub {
+    width: 90%;
+    height: 20px;
     margin-top: 10px;
     transform-origin: left;
     background: #dddddd;
