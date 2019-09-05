@@ -59,7 +59,8 @@ export default {
     }),
 
     selectArticleHandle(info, index) {
-      this.setPreview({ text: info.content })
+      const preview = `<blockquote>原文链接：<a href="${info.link}">${info.link}</a></blockquote>\n${info.content}`
+      this.setPreview({ text: preview })
       this.setAidx({ aidx: index })
     },
 

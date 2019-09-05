@@ -505,7 +505,7 @@ exports.default = _default;
             staticClass: "img",
             attrs: {
               draggable: "false",
-              src: "empty.e49f51da.svg",
+              src: "19ce81f0d9c67b535e36ec6de49f51da.svg",
               alt: ""
             }
           })
@@ -737,8 +737,9 @@ var _default = {
     postSubjects: 'postSubjects'
   }), {
     selectArticleHandle: function selectArticleHandle(info, index) {
+      var preview = "<blockquote>\u539F\u6587\u94FE\u63A5\uFF1A<a href=\"".concat(info.link, "\">").concat(info.link, "</a></blockquote>\n").concat(info.content);
       this.setPreview({
-        text: info.content
+        text: preview
       });
       this.setAidx({
         aidx: index
@@ -873,7 +874,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "0.0.0.0" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51032" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64609" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
