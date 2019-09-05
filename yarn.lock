@@ -2993,6 +2993,7 @@ kind-of@^6.0.0, kind-of@^6.0.2:
 koa-bodyparser@^4.2.1:
   version "4.2.1"
   resolved "https://registry.npm.taobao.org/koa-bodyparser/download/koa-bodyparser-4.2.1.tgz#4d7dacb5e6db1106649b595d9e5ccb158b6f3b29"
+  integrity sha1-TX2stebbEQZkm1ldnlzLFYtvOyk=
   dependencies:
     co-body "^6.0.0"
     copy-to "^2.0.1"
