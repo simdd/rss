@@ -505,7 +505,7 @@ exports.default = _default;
             staticClass: "img",
             attrs: {
               draggable: "false",
-              src: "19ce81f0d9c67b535e36ec6de49f51da.svg",
+              src: "empty.e49f51da.svg",
               alt: ""
             }
           })
@@ -874,7 +874,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "0.0.0.0" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64609" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53208" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

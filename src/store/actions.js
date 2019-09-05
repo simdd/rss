@@ -6,14 +6,14 @@ const actions = {
     })
 
     if (ret.subjects.length) {
-      commit('setSid', {
-        sid: ret.subjects[0]._id
-      })
       dispatch('getArticles', { sid: ret.subjects[0]._id })
     }
   },
 
   async getArticles({ state, commit, dispatch }, payload) {
+    if (payload.sid === state.sid) {
+      return null
+    }
     commit('setSid', {
       sid: payload.sid
     })

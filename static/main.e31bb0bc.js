@@ -96083,9 +96083,6 @@ var actions = {
               });
 
               if (ret.subjects.length) {
-                commit('setSid', {
-                  sid: ret.subjects[0]._id
-                });
                 dispatch('getArticles', {
                   sid: ret.subjects[0]._id
                 });
@@ -96115,6 +96112,15 @@ var actions = {
           switch (_context2.prev = _context2.next) {
             case 0:
               state = _ref2.state, commit = _ref2.commit, dispatch = _ref2.dispatch;
+
+              if (!(payload.sid === state.sid)) {
+                _context2.next = 3;
+                break;
+              }
+
+              return _context2.abrupt("return", null);
+
+            case 3:
               commit('setSid', {
                 sid: payload.sid
               });
@@ -96127,18 +96133,18 @@ var actions = {
               commit('setArticle', {
                 list: []
               });
-              _context2.next = 7;
+              _context2.next = 9;
               return window.apis.getArticles({
                 query: "?sid=".concat(payload.sid)
               });
 
-            case 7:
+            case 9:
               ret = _context2.sent;
               commit('setArticle', {
                 list: ret.articles
               });
 
-            case 9:
+            case 11:
             case "end":
               return _context2.stop();
           }
@@ -96332,7 +96338,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "0.0.0.0" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64609" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53208" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
