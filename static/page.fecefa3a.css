@@ -111,6 +111,7 @@ to {
   height: 100%;
   overflow-y: auto;
   background: #ffffff;
+  color: #333333;
 }
 .component-preview .empty[data-v-bf042e] {
   display: flex;

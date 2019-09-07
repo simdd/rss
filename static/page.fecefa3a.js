@@ -585,6 +585,7 @@ var _default = {
     add: function add() {
       this.visible = true;
       this.$refs.ipt.focus();
+      this.$refs.ipt.value = '';
     }
   },
   mounted: function mounted() {
@@ -880,7 +881,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "0.0.0.0" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50602" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62423" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

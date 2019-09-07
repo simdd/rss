@@ -41,6 +41,7 @@ export default {
   height: 100%;
   overflow-y: auto;
   background: #ffffff;
+  color: #333333;
 
   .empty {
     display: flex;

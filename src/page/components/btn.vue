@@ -32,6 +32,7 @@ export default {
     add() {
       this.visible = true
       this.$refs.ipt.focus()
+      this.$refs.ipt.value = ''
     }
   },
 
