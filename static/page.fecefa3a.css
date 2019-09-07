@@ -325,15 +325,68 @@ to {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  font-size: 14px;
-  color: #777777;
   background: #cccccc;
   transition: 300ms;
-  cursor: pointer;
   box-shadow: 1px 1px 1px #bbbbbb;
 }
 .component-btn .btn[data-v-438b58]:hover {
   background: #bbbbbb;
+}
+.component-btn .btn .add[data-v-438b58] {
+  font-size: 14px;
+  color: #777777;
+  cursor: pointer;
+}
+.component-btn .btn .load[data-v-438b58] {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  animation: antRotate-data-v-438b58 1.2s infinite linear;
+  cursor: not-allowed;
+}
+.component-btn .btn .load i[data-v-438b58] {
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background-color: #999999;
+  transform: scale(0.75);
+  display: block;
+  position: absolute;
+  opacity: 0.3;
+  animation: antSpinMove-data-v-438b58 1s infinite linear alternate;
+  transform-origin: 50% 50%;
+}
+.component-btn .btn .load i[data-v-438b58]:nth-child(1) {
+  left: 0;
+  top: 0;
+}
+.component-btn .btn .load i[data-v-438b58]:nth-child(2) {
+  right: 0;
+  top: 0;
+  animation-delay: 0.4s;
+}
+.component-btn .btn .load i[data-v-438b58]:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  animation-delay: 0.8s;
+}
+.component-btn .btn .load i[data-v-438b58]:nth-child(4) {
+  left: 0;
+  bottom: 0;
+  animation-delay: 1.2s;
+}
+@keyframes antSpinMove-data-v-438b58 {
+to {
+    opacity: 1;
+}
+}
+@keyframes antRotate-data-v-438b58 {
+to {
+    transform: rotate(405deg);
+}
 }
 .component-btn .link[data-v-438b58] {
   position: absolute;

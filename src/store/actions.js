@@ -35,17 +35,31 @@ const actions = {
   },
 
   async postSubjects({ state, commit, dispatch }, payload) {
-    const ret = await window.apis.postSubjects({
-      body: {
-        url: payload.url
-      }
+    commit('setAdding', {
+      adding: true
     })
+
+    const ret = await window.apis
+      .postSubjects({
+        body: {
+          url: payload.url
+        }
+      })
+      .catch(e => {
+        commit('setAdding', {
+          badding: true
+        })
+      })
 
     const subjects = state.subjects.slice()
     subjects.unshift(ret.subject)
 
     commit('setSubjects', {
       list: subjects
+    })
+
+    commit('setAdding', {
+      adding: false
     })
   }
 }

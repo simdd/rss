@@ -9,7 +9,7 @@
     <section class="right">
       <v-preview :text="preview"></v-preview>
     </section>
-    <v-btn @add="addSubjectHandle"></v-btn>
+    <v-btn :adding="adding" @add="addSubjectHandle"></v-btn>
   </div>
 </template>
 
@@ -40,6 +40,7 @@ export default {
     ...mapState({
       sid: state => state.sid,
       aidx: state => state.aidx,
+      adding: state => state.adding,
       preview: state => state.preview,
       subjects: state => state.subjects,
       articles: state => state.articles

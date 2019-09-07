@@ -96049,7 +96049,8 @@ var state = {
   subjects: [],
   articles: [],
   sid: '',
-  aidx: -1
+  aidx: -1,
+  adding: false
 };
 var _default = state;
 exports.default = _default;
@@ -96173,22 +96174,32 @@ var actions = {
           switch (_context3.prev = _context3.next) {
             case 0:
               state = _ref3.state, commit = _ref3.commit, dispatch = _ref3.dispatch;
-              _context3.next = 3;
+              commit('setAdding', {
+                adding: true
+              });
+              _context3.next = 4;
               return window.apis.postSubjects({
                 body: {
                   url: payload.url
                 }
+              }).catch(function (e) {
+                commit('setAdding', {
+                  badding: true
+                });
               });
 
-            case 3:
+            case 4:
               ret = _context3.sent;
               subjects = state.subjects.slice();
               subjects.unshift(ret.subject);
               commit('setSubjects', {
                 list: subjects
               });
+              commit('setAdding', {
+                adding: false
+              });
 
-            case 7:
+            case 9:
             case "end":
               return _context3.stop();
           }
@@ -96227,6 +96238,9 @@ var mutations = {
   },
   setAidx: function setAidx(state, payload) {
     state.aidx = payload.aidx;
+  },
+  setAdding: function setAdding(state, payload) {
+    state.adding = payload.adding;
   }
 };
 var _default = mutations;

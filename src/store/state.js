@@ -3,7 +3,8 @@ const state = {
   subjects: [],
   articles: [],
   sid: '',
-  aidx: -1
+  aidx: -1,
+  adding: false
 }
 
 export default state

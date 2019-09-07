@@ -13,6 +13,9 @@ const mutations = {
   },
   setAidx(state, payload) {
     state.aidx = payload.aidx
+  },
+  setAdding(state, payload) {
+    state.adding = payload.adding
   }
 }
 

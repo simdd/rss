@@ -569,8 +569,22 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   name: 'btn',
+  props: {
+    adding: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: function data() {
     return {
       visible: false
@@ -583,6 +597,10 @@ var _default = {
       this.visible = false;
     },
     add: function add() {
+      if (this.adding) {
+        return;
+      }
+
       this.visible = true;
       this.$refs.ipt.focus();
       this.$refs.ipt.value = '';
@@ -621,7 +639,19 @@ exports.default = _default;
       }
     },
     [
-      _c("span", { staticClass: "btn" }, [_vm._v("+")]),
+      _c("div", { staticClass: "btn" }, [
+        _vm.adding
+          ? _c("span", { staticClass: "load" }, [
+              _c("i"),
+              _vm._v(" "),
+              _c("i"),
+              _vm._v(" "),
+              _c("i"),
+              _vm._v(" "),
+              _c("i")
+            ])
+          : _c("span", { staticClass: "add" }, [_vm._v("+")])
+      ]),
       _vm._v(" "),
       _c("input", {
         ref: "ipt",
@@ -725,6 +755,9 @@ var _default = {
     aidx: function aidx(state) {
       return state.aidx;
     },
+    adding: function adding(state) {
+      return state.adding;
+    },
     preview: function preview(state) {
       return state.preview;
     },
@@ -815,7 +848,10 @@ exports.default = _default;
         1
       ),
       _vm._v(" "),
-      _c("v-btn", { on: { add: _vm.addSubjectHandle } })
+      _c("v-btn", {
+        attrs: { adding: _vm.adding },
+        on: { add: _vm.addSubjectHandle }
+      })
     ],
     1
   )
