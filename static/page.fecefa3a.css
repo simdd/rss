@@ -113,6 +113,14 @@ to {
   background: #ffffff;
   color: #333333;
 }
+.component-preview[data-v-bf042e]::-webkit-scrollbar {
+  width: 8px;
+}
+.component-preview[data-v-bf042e]::-webkit-scrollbar-thumb {
+  width: 8px;
+  border-radius: 4px;
+  background-color: #00000020;
+}
 .component-preview .empty[data-v-bf042e] {
   display: flex;
   justify-content: center;

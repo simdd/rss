@@ -51,6 +51,10 @@ const actions = {
         })
       })
 
+    if (!ret) {
+      return
+    }
+
     const subjects = state.subjects.slice()
     subjects.unshift(ret.subject)
 

@@ -91936,7 +91936,110 @@ Object.defineProperty(request, 'debug', {
     request.Request.debug = debug;
   }
 });
-},{"extend":"../../node_modules/extend/index.js","./lib/cookies":"../../node_modules/request/lib/cookies.js","./lib/helpers":"../../node_modules/request/lib/helpers.js","./request":"../../node_modules/request/request.js"}],"apis.js":[function(require,module,exports) {
+},{"extend":"../../node_modules/extend/index.js","./lib/cookies":"../../node_modules/request/lib/cookies.js","./lib/helpers":"../../node_modules/request/lib/helpers.js","./request":"../../node_modules/request/request.js"}],"../../node_modules/any-promise/loader.js":[function(require,module,exports) {
+"use strict"
+    // global key for user preferred registration
+var REGISTRATION_KEY = '@@any-promise/REGISTRATION',
+    // Prior registration (preferred or detected)
+    registered = null
+
+/**
+ * Registers the given implementation.  An implementation must
+ * be registered prior to any call to `require("any-promise")`,
+ * typically on application load.
+ *
+ * If called with no arguments, will return registration in
+ * following priority:
+ *
+ * For Node.js:
+ *
+ * 1. Previous registration
+ * 2. global.Promise if node.js version >= 0.12
+ * 3. Auto detected promise based on first sucessful require of
+ *    known promise libraries. Note this is a last resort, as the
+ *    loaded library is non-deterministic. node.js >= 0.12 will
+ *    always use global.Promise over this priority list.
+ * 4. Throws error.
+ *
+ * For Browser:
+ *
+ * 1. Previous registration
+ * 2. window.Promise
+ * 3. Throws error.
+ *
+ * Options:
+ *
+ * Promise: Desired Promise constructor
+ * global: Boolean - Should the registration be cached in a global variable to
+ * allow cross dependency/bundle registration?  (default true)
+ */
+module.exports = function(root, loadImplementation){
+  return function register(implementation, opts){
+    implementation = implementation || null
+    opts = opts || {}
+    // global registration unless explicitly  {global: false} in options (default true)
+    var registerGlobal = opts.global !== false;
+
+    // load any previous global registration
+    if(registered === null && registerGlobal){
+      registered = root[REGISTRATION_KEY] || null
+    }
+
+    if(registered !== null
+        && implementation !== null
+        && registered.implementation !== implementation){
+      // Throw error if attempting to redefine implementation
+      throw new Error('any-promise already defined as "'+registered.implementation+
+        '".  You can only register an implementation before the first '+
+        ' call to require("any-promise") and an implementation cannot be changed')
+    }
+
+    if(registered === null){
+      // use provided implementation
+      if(implementation !== null && typeof opts.Promise !== 'undefined'){
+        registered = {
+          Promise: opts.Promise,
+          implementation: implementation
+        }
+      } else {
+        // require implementation if implementation is specified but not provided
+        registered = loadImplementation(implementation)
+      }
+
+      if(registerGlobal){
+        // register preference globally in case multiple installations
+        root[REGISTRATION_KEY] = registered
+      }
+    }
+
+    return registered
+  }
+}
+
+},{}],"../../node_modules/any-promise/register-shim.js":[function(require,module,exports) {
+"use strict";
+module.exports = require('./loader')(window, loadImplementation)
+
+/**
+ * Browser specific loadImplementation.  Always uses `window.Promise`
+ *
+ * To register a custom implementation, must register with `Promise` option.
+ */
+function loadImplementation(){
+  if(typeof window.Promise === 'undefined'){
+    throw new Error("any-promise browser requires a polyfill or explicit registration"+
+      " e.g: require('any-promise/register/bluebird')")
+  }
+  return {
+    Promise: window.Promise,
+    implementation: 'window.Promise'
+  }
+}
+
+},{"./loader":"../../node_modules/any-promise/loader.js"}],"../../node_modules/any-promise/index.js":[function(require,module,exports) {
+module.exports = require('./register')().Promise
+
+},{"./register":"../../node_modules/any-promise/register-shim.js"}],"apis.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -91949,6 +92052,8 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
 var _request = _interopRequireDefault(require("request"));
+
+var _anyPromise = require("any-promise");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -91980,9 +92085,13 @@ function get(option) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return new Promise(function (resolve) {
+                return new Promise(function (resolve, reject) {
                   _request.default.get("".concat(option.url).concat(config ? config.query : ''), function (error, res, body) {
-                    resolve(JSON.parse(body).data);
+                    if (error || [200, 204].indexOf(res.statusCode) === -1) {
+                      reject();
+                    } else {
+                      resolve(JSON.parse(body).data);
+                    }
                   });
                 });
 
@@ -92016,14 +92125,18 @@ function post(option) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return new Promise(function (resolve) {
+                return new Promise(function (resolve, reject) {
                   _request.default.post(option.url, {
                     headers: {
                       'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(config.body)
                   }, function (error, res, body) {
-                    resolve(JSON.parse(body).data);
+                    if (error || [200, 204].indexOf(res.statusCode) === -1) {
+                      reject();
+                    } else {
+                      resolve(JSON.parse(body).data);
+                    }
                   });
                 });
 
@@ -92044,7 +92157,7 @@ function post(option) {
     }()
   );
 }
-},{"@babel/runtime/regenerator":"../../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../../node_modules/@babel/runtime/helpers/asyncToGenerator.js","request":"../../node_modules/request/index.js"}],"../../node_modules/vue-router/dist/vue-router.esm.js":[function(require,module,exports) {
+},{"@babel/runtime/regenerator":"../../node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"../../node_modules/@babel/runtime/helpers/asyncToGenerator.js","request":"../../node_modules/request/index.js","any-promise":"../../node_modules/any-promise/index.js"}],"../../node_modules/vue-router/dist/vue-router.esm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -96190,6 +96303,15 @@ var actions = {
 
             case 4:
               ret = _context3.sent;
+
+              if (ret) {
+                _context3.next = 7;
+                break;
+              }
+
+              return _context3.abrupt("return");
+
+            case 7:
               subjects = state.subjects.slice();
               subjects.unshift(ret.subject);
               commit('setSubjects', {
@@ -96199,7 +96321,7 @@ var actions = {
                 adding: false
               });
 
-            case 9:
+            case 11:
             case "end":
               return _context3.stop();
           }
@@ -96357,7 +96479,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "0.0.0.0" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62423" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63754" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

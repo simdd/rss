@@ -1,4 +1,5 @@
 import request from 'request'
+import { reject } from 'any-promise'
 
 const HOST = `http://127.0.0.1`
 const PORT = 37373
@@ -12,9 +13,13 @@ export default apis
 
 function get(option) {
   return async config => {
-    return await new Promise(resolve => {
+    return await new Promise((resolve, reject) => {
       request.get(`${option.url}${config ? config.query : ''}`, function(error, res, body) {
-        resolve(JSON.parse(body).data)
+        if (error || [200, 204].indexOf(res.statusCode) === -1) {
+          reject()
+        } else {
+          resolve(JSON.parse(body).data)
+        }
       })
     })
   }
@@ -22,7 +27,7 @@ function get(option) {
 
 function post(option) {
   return async config => {
-    return await new Promise(resolve => {
+    return await new Promise((resolve, reject) => {
       request.post(
         option.url,
         {
@@ -32,7 +37,11 @@ function post(option) {
           body: JSON.stringify(config.body)
         },
         function(error, res, body) {
-          resolve(JSON.parse(body).data)
+          if (error || [200, 204].indexOf(res.statusCode) === -1) {
+            reject()
+          } else {
+            resolve(JSON.parse(body).data)
+          }
         }
       )
     })

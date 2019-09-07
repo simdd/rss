@@ -43,6 +43,16 @@ export default {
   background: #ffffff;
   color: #333333;
 
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 8px;
+    border-radius: 4px;
+    background-color: #00000020;
+  }
+
   .empty {
     display: flex;
     justify-content: center;
