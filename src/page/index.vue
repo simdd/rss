@@ -1,7 +1,12 @@
 <template>
   <div class="layout">
     <section class="left">
-      <v-subject :sid="sid" :list="subjects" @select="selectSubjectHandle"></v-subject>
+      <v-subject
+        :sid="sid"
+        :list="subjects"
+        @select="selectSubjectHandle"
+        @delete="deleteSubjectHandle"
+      ></v-subject>
     </section>
     <section class="middle">
       <v-article :aidx="aidx" :list="articles" @select="selectArticleHandle"></v-article>
@@ -56,7 +61,8 @@ export default {
     ...mapActions({
       getSubjects: 'getSubjects',
       getArticles: 'getArticles',
-      postSubjects: 'postSubjects'
+      postSubjects: 'postSubjects',
+      deleteSubjects: 'deleteSubjects'
     }),
 
     selectArticleHandle(info, index) {
@@ -71,6 +77,10 @@ export default {
 
     addSubjectHandle(url) {
       this.postSubjects({ url })
+    },
+
+    deleteSubjectHandle(info) {
+      this.deleteSubjects({ sid: info._id })
     }
   },
 

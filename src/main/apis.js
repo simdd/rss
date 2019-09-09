@@ -1,17 +1,17 @@
 import request from 'request'
-import { reject } from 'any-promise'
 
 const HOST = `http://127.0.0.1`
 const PORT = 37373
 const apis = {
-  getSubjects: get({ url: `${HOST}:${PORT}/subjects` }),
-  getArticles: get({ url: `${HOST}:${PORT}/articles` }),
-  postSubjects: post({ url: `${HOST}:${PORT}/subjects` })
+  getSubjects: _get({ url: `${HOST}:${PORT}/subjects` }),
+  getArticles: _get({ url: `${HOST}:${PORT}/articles` }),
+  postSubjects: _post({ url: `${HOST}:${PORT}/subjects` }),
+  deleteSubjects: _delete({ url: `${HOST}:${PORT}/subjects` })
 }
 
 export default apis
 
-function get(option) {
+function _get(option) {
   return async config => {
     return await new Promise((resolve, reject) => {
       request.get(`${option.url}${config ? config.query : ''}`, function(error, res, body) {
@@ -25,7 +25,7 @@ function get(option) {
   }
 }
 
-function post(option) {
+function _post(option) {
   return async config => {
     return await new Promise((resolve, reject) => {
       request.post(
@@ -41,6 +41,29 @@ function post(option) {
             reject()
           } else {
             resolve(JSON.parse(body).data)
+          }
+        }
+      )
+    })
+  }
+}
+
+function _delete(option) {
+  return async config => {
+    return await new Promise((resolve, reject) => {
+      request.del(
+        option.url,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(config.body)
+        },
+        function(error, res, body) {
+          if (error || [200, 204].indexOf(res.statusCode) === -1) {
+            reject()
+          } else {
+            resolve()
           }
         }
       )

@@ -65,6 +65,30 @@ const actions = {
     commit('setAdding', {
       adding: false
     })
+  },
+
+  async deleteSubjects({ state, commit, dispatch }, payload) {
+    await window.apis.deleteSubjects({
+      body: {
+        id: payload.sid
+      }
+    })
+
+    let _index = -1
+    let _list = state.subjects.slice()
+    state.subjects.map((item, index) => {
+      if (item._id === payload.sid) {
+        _index = index
+      }
+    })
+
+    if (_index > -1) {
+      _list.splice(_index, 1)
+
+      commit('setSubjects', {
+        list: _list
+      })
+    }
   }
 }
 

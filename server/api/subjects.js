@@ -40,3 +40,19 @@ exports.add = async ctx => {
     }
   }
 }
+
+exports.delete = async ctx => {
+  const id = ctx.request.body.id
+
+  await new Promise(resolve => {
+    ctx.db.remove({ _id: id }, {}, function(err) {
+      resolve()
+    })
+  })
+
+  ctx.body = {
+    errcode: 0,
+    errmsg: '',
+    data: {}
+  }
+}
